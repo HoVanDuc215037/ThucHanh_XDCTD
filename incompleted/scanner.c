@@ -91,6 +91,9 @@ Token *readIdentKeyword(void)
   case KW_INTEGER:
     token->tokenType = tokenType;
     break;
+  case KW_STRING:
+    token->tokenType = tokenType;
+    break;
   case KW_CHAR:
     token->tokenType = tokenType;
     break;
@@ -199,7 +202,7 @@ Token *getToken(void)
   case CHAR_DIGIT:
     return readNumber();
   case CHAR_PLUS:
-    token = makeToken(SB_PLUS, lineNo, colNo);
+    token = makeToken(SB_PERCENT, lineNo, colNo);
     readChar();
     return token;
   case CHAR_MINUS:
@@ -226,7 +229,10 @@ Token *getToken(void)
       return token;
     }
   }
-
+  case CHAR_PERCENT:
+    token = makeToken(SB_PERCENT, lineNo, colNo);
+    readChar();
+    return token;
   case CHAR_LT:
     ln = lineNo;
     cn = colNo;
@@ -365,6 +371,9 @@ void printToken(Token *token)
   case KW_INTEGER:
     printf("KW_INTEGER\n");
     break;
+  case KW_STRING:
+    printf("KW_STRING\n");
+    break;
   case KW_CHAR:
     printf("KW_CHAR\n");
     break;
@@ -454,6 +463,9 @@ void printToken(Token *token)
     break;
   case SB_SLASH:
     printf("SB_SLASH\n");
+    break;
+  case SB_PERCENT:
+    printf("SB_PERCENT\n");
     break;
   case SB_LPAR:
     printf("SB_LPAR\n");

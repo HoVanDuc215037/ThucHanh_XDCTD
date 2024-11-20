@@ -7,14 +7,16 @@
 #ifndef __CHARCODE_H__
 #define __CHARCODE_H__
 
-typedef enum {
+typedef enum
+{
   CHAR_SPACE,        // Khoảng trống
   CHAR_LETTER,       // Chữ cái
   CHAR_DIGIT,        // Chữ số
   CHAR_PLUS,         // ‘+’
-  CHAR_MINUS,        // ‘-’ 
+  CHAR_MINUS,        // ‘-’
   CHAR_TIMES,        // ‘*’
   CHAR_SLASH,        // ‘/’
+  CHAR_PERCENT,      // ‘%’
   CHAR_LT,           // ‘<‘
   CHAR_GT,           // ‘<‘
   CHAR_EXCLAIMATION, // ‘!’
@@ -23,7 +25,7 @@ typedef enum {
   CHAR_PERIOD,       // ‘.’
   CHAR_COLON,        // ‘:’
   CHAR_SEMICOLON,    // ‘;’
-  CHAR_SINGLEQUOTE, // ‘\’’ 
+  CHAR_SINGLEQUOTE,  // ‘\’’
   CHAR_LPAR,         // ‘(‘
   CHAR_RPAR,         // ‘)’
   CHAR_UNKNOWN       // Ký tự ngoài bảng chữ cái
