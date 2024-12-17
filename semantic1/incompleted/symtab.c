@@ -175,7 +175,7 @@ Object *createVariableObject(char *name)
   strcpy(var->name, name);
   var->kind = OBJ_VARIABLE;
   var->varAttrs = (VariableAttributes *)malloc(sizeof(VariableAttributes));
-  var->varAttrs->type = (TypeAttributes *)malloc(sizeof(TypeAttributes));
+  var->varAttrs->type = (Type *)malloc(sizeof(Type));
   var->varAttrs->scope = createScope(var, symtab->currentScope);
   return var;
 }
@@ -187,8 +187,8 @@ Object *createFunctionObject(char *name)
   strcpy(func->name, name);
   func->kind = OBJ_FUNCTION;
   func->funcAttrs = (FunctionAttributes *)malloc(sizeof(FunctionAttributes));
-  func->funcAttrs->paramList = (ParameterAttributes *)malloc(sizeof(ParameterAttributes));
-  func->funcAttrs->returnType = (TypeAttributes *)malloc(sizeof(TypeAttributes));
+  func->funcAttrs->paramList = (ObjectNode *)malloc(sizeof(ObjectNode));
+  func->funcAttrs->returnType = (Type *)malloc(sizeof(Type));
   func->funcAttrs->scope = createScope(func, symtab->currentScope);
   return func;
 }
@@ -200,7 +200,7 @@ Object *createProcedureObject(char *name)
   strcpy(proce->name, name);
   proce->kind = OBJ_PROCEDURE;
   proce->procAttrs = (ProcedureAttributes *)malloc(sizeof(ProcedureAttributes));
-  proce->procAttrs->paramList = (ParameterAttributes *)malloc(sizeof(ParameterAttributes));
+  proce->procAttrs->paramList = (ObjectNode *)malloc(sizeof(ObjectNode));
   proce->procAttrs->scope = createScope(proce, symtab->currentScope);
   return proce;
 }
@@ -212,8 +212,8 @@ Object *createParameterObject(char *name, enum ParamKind kind, Object *owner)
   strcpy(param->name, name);
   param->kind = OBJ_PARAMETER;
   param->paramAttrs->kind = kind;
-  param->paramAttrs->function = (FunctionAttributes *)malloc(sizeof(FunctionAttributes));
-  param->paramAttrs->type = (TypeAttributes *)malloc(sizeof(TypeAttributes));
+  param->paramAttrs->function = (Object *)malloc(sizeof(Object));
+  param->paramAttrs->type = (Type *)malloc(sizeof(Type));
   param->paramAttrs->function = owner;
   return param;
 }
