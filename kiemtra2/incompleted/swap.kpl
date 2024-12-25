@@ -1,44 +1,44 @@
 PROGRAM SWAP;  (* Hoán đổi giá trị của hai biến A và B *)
-CONST MAX = 2;  (* Chỉ có hai phần tử trong mảng *)
-TYPE T = INTEGER;
 VAR  
-  A: ARRAY(. 2 .) OF T;  (* Mảng chứa hai giá trị A[1] và A[2] *)
-  TEMP: T;
-  CH: CHAR;
+  A : INTEGER;  (* Biến A *)
+  B : INTEGER;  (* Biến B *)
+  TEMP : INTEGER;  (* Biến tạm để hoán đổi giá trị *)
+  CH : CHAR;  (* Biến điều khiển vòng lặp *)
 
+(* Thủ tục nhập dữ liệu *)
 PROCEDURE INPUT;
 BEGIN
-  (* Gán giá trị cho A[1] và A[2] *)
-  A(.1.) := 5;
-  A(.2.) := 10;
+  (* Gán giá trị cho A và B *)
+  A := 5;
+  B := 10;
 END;
 
+(* Thủ tục xuất dữ liệu *)
 PROCEDURE OUTPUT;
 BEGIN
-  (* Hiển thị giá trị của A[1] và A[2] *)
-  CALL WRITE('Giá trị ban đầu: A(.1.) = ');
-  CALL WRITEI(A(.1.));
+  (* In giá trị của A và B *)
+  CALL WRITEI(A);
   CALL WRITELN;
-  CALL WRITE('Giá trị ban đầu: A(.2.) = ');
-  CALL WRITEI(A(.2.));
+  CALL WRITEI(B);
   CALL WRITELN;
 END;
 
-PROCEDURE SWAP_VALUES;
+(* Thủ tục hoán đổi giá trị của A và B *)
+PROCEDURE SWAPVALUES;
 BEGIN
-  (* Hoán đổi giá trị giữa A(.1.) và A(.2.) *)
-  TEMP := A(.1.);
-  A(.1.) := A(.2.);
-  A(.2.) := TEMP;
+  (* Hoán đổi giá trị giữa A và B *)
+  TEMP := A;
+  A := B;
+  B := TEMP;
 END;
 
 BEGIN
   CH := 'y';
   WHILE CH = 'y' DO
     BEGIN
-      CALL INPUT;      (* Gán giá trị cho A[1] và A[2] *)
+      CALL INPUT;      (* Gán giá trị cho A và B *)
       CALL OUTPUT;     (* Hiển thị giá trị ban đầu *)
-      CALL SWAP_VALUES; (* Hoán đổi giá trị *)
+      CALL SWAPVALUES; (* Hoán đổi giá trị giữa A và B *)
       CALL OUTPUT;     (* Hiển thị giá trị sau khi hoán đổi *)
       CH := 'n';       (* Thoát vòng lặp sau khi hoàn tất một lần hoán đổi *)
     END
