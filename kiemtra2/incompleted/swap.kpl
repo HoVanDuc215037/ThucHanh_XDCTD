@@ -1,0 +1,40 @@
+PROGRAM SWAP;  (* Hoán đổi giá trị của hai biến A và B *)
+VAR  
+  A: INTEGER;  
+  B: INTEGER;  
+  TEMP: INTEGER;
+  C: CHAR;
+
+PROCEDURE SWAP_VALUES(VAR X: INTEGER; VAR Y: INTEGER);
+BEGIN
+  TEMP := X;
+  X := Y;
+  Y := TEMP;
+END;  (* END OF SWAP_VALUES *)
+
+BEGIN
+  (* Gán giá trị cho A và B *)
+  A := 5;
+  B := 10;
+  
+  (* Hiển thị giá trị ban đầu của A và B *)
+  CALL WRITELN;
+  CALL WRITE('Giá trị ban đầu: A = ');
+  CALL WRITEI(A);
+  CALL WRITELN;
+  CALL WRITE('Giá trị ban đầu: B = ');
+  CALL WRITEI(B);
+  CALL WRITELN;
+  
+  (* Hoán đổi giá trị của A và B *)
+  CALL SWAP_VALUES(A, B);
+  
+  (* Hiển thị kết quả sau khi hoán đổi *)
+  CALL WRITELN;
+  CALL WRITE('Giá trị sau khi hoán đổi: A = ');
+  CALL WRITEI(A);
+  CALL WRITELN;
+  CALL WRITE('Giá trị sau khi hoán đổi: B = ');
+  CALL WRITEI(B);
+  CALL WRITELN;
+END.  (* END OF SWAP *)
