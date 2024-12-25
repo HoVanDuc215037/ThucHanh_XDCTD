@@ -569,6 +569,18 @@ Type *compileLValue(void)
   return varType;
 }
 
+void compileCallSt(void)
+{
+  Object *proc;
+
+  eat(KW_CALL);
+  eat(TK_IDENT);
+
+  proc = checkDeclaredProcedure(currentToken->string);
+
+  compileArguments(proc->procAttrs->paramList);
+}
+
 void compileAssign(void)
 {
   switch (lookAhead->tokenType)
