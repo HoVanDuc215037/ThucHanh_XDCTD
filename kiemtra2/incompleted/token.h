@@ -8,7 +8,7 @@
 #define __TOKEN_H__
 
 #define MAX_IDENT_LEN 19
-#define KEYWORDS_COUNT 24
+#define KEYWORDS_COUNT 25
 
 typedef enum
 {
@@ -38,6 +38,7 @@ typedef enum
   KW_DO,
   KW_FOR,
   KW_TO,
+  KW_SUM,
 
   SB_SEMICOLON,
   SB_COLON,

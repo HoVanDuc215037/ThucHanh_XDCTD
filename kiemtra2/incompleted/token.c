@@ -32,7 +32,9 @@ struct
     {"WHILE", KW_WHILE},
     {"DO", KW_DO},
     {"FOR", KW_FOR},
-    {"TO", KW_TO}};
+    {"TO", KW_TO},
+    {"SUM", KW_SUM},
+};
 
 int keywordEq(char *kw, char *string)
 {
@@ -119,6 +121,8 @@ char *tokenToString(TokenType tokenType)
     return "keyword FOR";
   case KW_TO:
     return "keyword TO";
+  case KW_SUM:
+    return "keyword SUM";
 
   case SB_SEMICOLON:
     return "\';\'";

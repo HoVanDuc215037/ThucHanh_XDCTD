@@ -53,6 +53,7 @@ Type *compileTerm(void);
 void compileTerm2(void);
 Type *compileFactor(void);
 Type *compileIndexes(Type *arrayType);
+Type *compileSumSt(void);
 
 int compile(char *fileName);
 

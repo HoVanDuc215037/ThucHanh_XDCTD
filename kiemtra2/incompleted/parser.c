@@ -1072,6 +1072,26 @@ Type *compileIndexes(Type *arrayType)
   return arrayType;
 }
 
+Type *compileSumSt(void)
+{
+  Type *type1;
+  Type *type2;
+  eat(KW_SUM);
+  type1 = compileExpression();
+  if (lookAhead->tokenType == SB_COMMA)
+  {
+    while (lookAhead->tokenType == SB_COMMA)
+    {
+      eat(SB_COMMA);
+      type2 = compileExpression();
+      checkTypeEquality(type1, type2);
+    }
+  }
+  else
+    error(ERR_INVALID_EXPRESSION, lookAhead->lineNo, lookAhead->colNo);
+  return type1;
+}
+
 int compile(char *fileName)
 {
   if (openInputStream(fileName) == IO_ERROR)
